@@ -9,6 +9,10 @@ app = FastAPI(title="Book Service")
 bookRepository = BookRepository()
 bookController = BookController(bookRepository)
 
+@app.get("/")
+def hello():
+    return {"message":"It is a health check message"}
+
 @app.post('/api/v1/books/', response_model=BookOut, status_code=201)
 def create(payload: BookIn):
     bookOut = bookController.create(payload)
