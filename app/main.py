@@ -7,9 +7,11 @@ from app.api.infrastructure.book_repository import BookRepository
 
 app = FastAPI(title="Book Service")
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
+origins=[*]
+app = CORSMiddleware(
+    app=app,
+    allow_origins=orgins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
