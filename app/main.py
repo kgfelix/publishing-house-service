@@ -1,10 +1,18 @@
 from fastapi import (FastAPI, HTTPException)
+from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from app.api.interfaces.book_controller import BookController
 from app.api.interfaces.book_model import (BookIn, BookOut)
 from app.api.infrastructure.book_repository import BookRepository
 
 app = FastAPI(title="Book Service")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 bookRepository = BookRepository()
 bookController = BookController(bookRepository)
