@@ -9,3 +9,8 @@ Install the dependencies: pip3 install -r requirements.txt
 
 
 uvicorn app.main:app --reload
+
+
+https://github.com/gpkc/nameko-microservices/blob/master/gateway/run.sh
+
+https://www.toptal.com/python/introduction-python-microservices-nameko
